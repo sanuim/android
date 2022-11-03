@@ -1,0 +1,81 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="9">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="nav-lsink" />
+            <item index="7" class="java.lang.String" itemvalue="active" />
+            <item index="8" class="java.lang.String" itemvalue="important" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="22">
+            <item index="0" class="java.lang.String" itemvalue="psycopg2-binary" />
+            <item index="1" class="java.lang.String" itemvalue="mysqlclient" />
+            <item index="2" class="java.lang.String" itemvalue="six" />
+            <item index="3" class="java.lang.String" itemvalue="kombu" />
+            <item index="4" class="java.lang.String" itemvalue="click" />
+            <item index="5" class="java.lang.String" itemvalue="vine" />
+            <item index="6" class="java.lang.String" itemvalue="django-celery-beat" />
+            <item index="7" class="java.lang.String" itemvalue="django-celery-results" />
+            <item index="8" class="java.lang.String" itemvalue="amqp" />
+            <item index="9" class="java.lang.String" itemvalue="celery-progress" />
+            <item index="10" class="java.lang.String" itemvalue="grpcio" />
+            <item index="11" class="java.lang.String" itemvalue="SMOK5-Core" />
+            <item index="12" class="java.lang.String" itemvalue="boto3" />
+            <item index="13" class="java.lang.String" itemvalue="dataops-commons" />
+            <item index="14" class="java.lang.String" itemvalue="botocore" />
+            <item index="15" class="java.lang.String" itemvalue="pypika" />
+            <item index="16" class="java.lang.String" itemvalue="aws-wsgi" />
+            <item index="17" class="java.lang.String" itemvalue="pynamodb" />
+            <item index="18" class="java.lang.String" itemvalue="marshmallow" />
+            <item index="19" class="java.lang.String" itemvalue="itsdangerous" />
+            <item index="20" class="java.lang.String" itemvalue="flask" />
+            <item index="21" class="java.lang.String" itemvalue="python-jose" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="W292" />
+          <option value="E261" />
+          <option value="E501" />
+          <option value="E722" />
+          <option value="E303" />
+          <option value="E401" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="time.time.time" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
