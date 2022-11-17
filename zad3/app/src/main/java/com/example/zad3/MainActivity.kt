@@ -28,6 +28,9 @@ class MainActivity : AppCompatActivity() {
         var c9: Button = findViewById(R.id.c9)
         var c0: Button = findViewById(R.id.c0)
         var sum: Button = findViewById(R.id.sum)
+        var mul: Button = findViewById(R.id.mul)
+        var div: Button = findViewById(R.id.div)
+        var sub: Button = findViewById(R.id.sub)
         var doResult: Button = findViewById(R.id.doResult)
         var erase: Button = findViewById(R.id.erase)
 
@@ -74,6 +77,15 @@ class MainActivity : AppCompatActivity() {
 
         sum.setOnClickListener {
             textResult.append("+")
+        }
+        sub.setOnClickListener {
+            textResult.append("-")
+        }
+        div.setOnClickListener {
+            textResult.append("/")
+        }
+        mul.setOnClickListener {
+            textResult.append("*")
         }
 
         erase.setOnClickListener {
