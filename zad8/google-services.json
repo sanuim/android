@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "649920278972",
+    "project_id": "android-c268d",
+    "storage_bucket": "android-c268d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649920278972:android:9707cd02526c5b149cfbb9",
+        "android_client_info": {
+          "package_name": "com.example.zad8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649920278972-c7npivdtj7lmi7bmiror83v7oafv1l2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-RLChOyuFAmh6KmVvUkJQPB5EsmgN200"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649920278972-c7npivdtj7lmi7bmiror83v7oafv1l2i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
