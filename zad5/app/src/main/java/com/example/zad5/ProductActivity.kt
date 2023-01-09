@@ -1,6 +1,7 @@
 package com.example.zad5
 
-import android.R
+
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -10,18 +11,21 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_item.*
+import kotlinx.android.synthetic.main.activity_item.view.*
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
+import kotlinx.android.synthetic.main.product_row_item.view.*
 
 
 class ProductActivity : AppCompatActivity() {
 
-    lateinit var adapter: ProductAdapter
-
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(product_title)
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -30,23 +34,15 @@ class ProductActivity : AppCompatActivity() {
         upArrow?.setColorFilter(ContextCompat.getColor(this, io.paperdb.R.color.primary_dark_material_dark), PorterDuff.Mode.SRC_ATOP)
         supportActionBar?.setHomeAsUpIndicator(upArrow)
 
-        adapter = ProductAdapter(this, productClickCallback)
-        adapter.notifyDataSetChanged()
-
-        val inflater = getSystemService<Any>(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-
-        val vi: View = inflater.inflate(R.layout., null)
-
-        vi.findViewById(R.id.HeaderText).text = "value of header text"
-
-        shopping_cart_recyclerView.adapter = adapter
-
-        shopping_cart_recyclerView.layoutManager = LinearLayoutManager(this)
-
-        var totalPrice = ShoppingCart.getCart()
-            .fold(0.toDouble()) { acc, cartItem -> acc + cartItem.quantity.times(cartItem.product.price!!.toDouble()) }
-
-        total_price.text = "$${totalPrice}"
+        val bundle: Bundle? = intent.extras
+        val title2 = bundle?.getString("title")
+        val price = bundle?.getString("price")
+        val image = bundle?.getString("image")
+        val description = bundle?.getString("description")
+        product_name.text = title2
+        product_price.text = "$${price}"
+        product_description.text = description
+        Picasso.get().load(image).fit().into(product_image)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

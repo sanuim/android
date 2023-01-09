@@ -1,5 +1,6 @@
 package com.example.zad5
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -51,6 +52,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun onClick(position: Int) {
+        val toast = Toast.makeText(this, "CLICKED", Toast.LENGTH_SHORT)
+        toast.show()
+    }
 
     fun getProducts() {
         apiService.getProducts().enqueue(object : retrofit2.Callback<List<Product>> {
@@ -70,7 +75,10 @@ class MainActivity : AppCompatActivity() {
                 productAdapter = ProductAdapter(this@MainActivity, products)
 
                 products_recyclerview.adapter = productAdapter
+
                 productAdapter.notifyDataSetChanged()
+
+
 
             }
 
