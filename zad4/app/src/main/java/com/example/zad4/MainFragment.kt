@@ -13,7 +13,7 @@ class MainFragment : Fragment() {
 
     private var fragbinding: FragmentTasksBinding? = null
 
-    val binding get() = fragbinding!!
+    private val binding get() = fragbinding!!
 
 
     override fun onCreateView(
