@@ -63,4 +63,6 @@ dependencies {
     androidTestImplementation 'androidx.test.services:test-services:1.4.2'
 
     implementation 'it.xabaras.android.espresso:recyclerview-child-actions:1.0'
+
+    implementation 'androidx.core:core-ktx:1.9.0'
 }

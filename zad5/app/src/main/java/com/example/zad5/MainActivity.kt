@@ -1,13 +1,24 @@
 package com.example.zad5
 
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.annotation.RequiresPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private var products = listOf<Product>()
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,6 +57,8 @@ class MainActivity : AppCompatActivity() {
         cart_size.text = ShoppingCart.getShoppingCartSize().toString()
 
         getProducts()
+
+        createNotification()
 
         showCart.setOnClickListener {
             startActivity(Intent(this, ShoppingCartActivity::class.java))
@@ -83,6 +97,39 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun createNotification() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("channel_1", "New Products", importance)
+            channel.description = "There are new products in the shop"
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+
+            val builder = NotificationCompat.Builder(this, "channel_1")
+                .setSmallIcon(R.drawable.ic_shopping_basket)
+                .setContentTitle("New Products")
+                .setContentText("New Bacpacks!")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return
+            }
+            NotificationManagerCompat.from(applicationContext).notify(2,builder.build())
+        }
     }
 
 }
